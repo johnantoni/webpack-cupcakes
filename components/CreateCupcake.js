@@ -10,12 +10,11 @@ class CreateCupcake extends React.Component {
       icing: '',
       toppings: [],
       image: '',
-      images: ["blackberry.png", "blueberry.png", "cherry.png",
-            "chocolate-baubles.png", "chocolate-cake.png", "chocolate-icing.png", "cream-cheese-icing.png",
-            "kiwi.png", "mint-cream-icing.png", "peanut-butter-icing.png", "pink-buttercream-icing.png",
-            "rainbow-sprinkles.png", "raspberry.png", "red-and-white-stars.png", "red-baubles.png",
-            "red-velvet-cake.png", "reeses.png", "smarties.png", "strawberry.png", "vanilla-cake.png"]
-
+      images: ["/images/blackberry.png", "/images/blueberry.png", "/images/cherry.png",
+            "/images/chocolate-baubles.png", "/images/chocolate-cake.png", "/images/chocolate-icing.png", "/images/cream-cheese-icing.png",
+            "/images/kiwi.png", "/images/mint-icing.png", "/images/peanut-butter-icing.png", "/images/pink-icing.png",
+            "/images/rainbow-sprinkles.png", "/images/raspberry.png", "/images/red-and-white-stars.png", "/images/red-baubles.png",
+            "/images/red-velvet-cake.png", "/images/reeses.png", "/images/smarties.png", "/images/strawberry.png", "/images/vanilla-cake.png"]
     }
     this.changeCake = this.changeCake.bind(this);
     this.changeIcing = this.changeIcing.bind(this);
