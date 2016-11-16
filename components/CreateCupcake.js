@@ -22,13 +22,13 @@ class CreateCupcake extends React.Component {
   }
 
   componentWillMount() {
+  }
+
+  componentDidMount() {
     this.state.images.forEach((src) => {
       const img = document.createElement('img');
       img.src = src; // Assigning the img src immediately requests the image
     });
-  }
-
-  componentDidMount() {
     this.updateCanvas();
   }
 
@@ -75,6 +75,11 @@ class CreateCupcake extends React.Component {
 
   addImage(ctx, imgSrc) {
     var image = new Image();
+
+    if (imgSrc === ".png") {
+      imgSrc = "";
+    }
+
     image.src = `/images/${imgSrc}`
 
     this.state.images.map((img) => {
@@ -134,7 +139,7 @@ class CreateCupcake extends React.Component {
     return (
       <div>
         <div className="cupcakeImg">
-          <img src="/images/logo.png" className="logo"alt="Cupcake Nation Logo"/>
+          <img src="/images/logo.png" className="logo" alt="Cupcake Nation Logo"/>
           <canvas ref="canvas" width={360} height={480}/>
         </div>
         <div className="form">
