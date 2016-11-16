@@ -10,7 +10,7 @@ class App extends React.Component {
     super();
     this.state = {
       currentUser: null,
-      loggedIn: false,
+      loggedIn: true,
       cupcakes: {}
     };
     this.addCupcake = this.addCupcake.bind(this);

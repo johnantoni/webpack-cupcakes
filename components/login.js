@@ -22,7 +22,7 @@ class Login extends React.Component {
     return <div>
       { this.state.error ? <div className="errorState">{ this.state.error }</div> : null }
       <div className="login-background">
-      <img src="logo.png" className="signin-logo"alt="Cupcake Nation Logo"/>
+      <img src="/images/logo.png" className="signin-logo"alt="Cupcake Nation Logo"/>
         <div className="loginType">
           <label>
             <input type='radio' value='login' checked={ this.state.mode ==='login' } onChange={ this.setMode } />

@@ -76,7 +76,7 @@ class CreateCupcake extends React.Component {
 
   addImage(ctx, imgSrc) {
     var image = new Image();
-    image.src = `${imgSrc}`
+    image.src = `/images/${imgSrc}`
 
     this.state.images.map((img) => {
       return `<img src=${img.src}></img>`
@@ -135,13 +135,13 @@ class CreateCupcake extends React.Component {
     return (
       <div>
         <div className="cupcakeImg">
-          <img src="logo.png" className="logo"alt="Cupcake Nation Logo"/>
+          <img src="/images/logo.png" className="logo"alt="Cupcake Nation Logo"/>
           <canvas ref="canvas" width={360} height={480}/>
         </div>
         <div className="form">
           <div className="cupcakes">
             <form onSubmit={(e) => this.createCupcake(e)}>
-              <img src="logo.png" className="logo"alt="Cupcake Nation Logo"/>
+              <img src="/images/logo.png" className="logo"alt="Cupcake Nation Logo"/>
               <h3>Choose a Cake Type</h3>
                 <Radio name={"vanilla"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
                 <Radio name={"red-velvet"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
@@ -166,18 +166,18 @@ class CreateCupcake extends React.Component {
                     value={this.state.toppings}
                     onChange={this.changeToppings}>
 
-                    <label className="inputcheck"><Checkbox value="blackberry"/><img src="/radio/input-blackberry.png" alt="blackberry png"/></label>
-                    <label className="inputcheck"><Checkbox value="blueberry"/><img src="/radio/input-blueberry.png" alt="blueberry png"/></label>
-                    <label className="inputcheck"><Checkbox value="cherry"/><img src="/radio/input-cherry.png" alt="cherry png"/></label>
-                    <label className="inputcheck"><Checkbox value="chocolate-baubles"/><img src="/radio/input-chocolate-baubles.png" alt="chocolate png"/></label>
-                    <label className="inputcheck"><Checkbox value="kiwi"/><img src="/radio/input-kiwi.png" alt="kiwi png"/></label>
-                    <label className="inputcheck"><Checkbox value="rainbow-sprinkles"/><img src="/radio/input-rainbow.png" alt="sprinkles png"/></label>
-                    <label className="inputcheck"><Checkbox value="raspberry"/><img src="/radio/input-raspberry.png"alt="raspberry png"/></label>
-                    <label className="inputcheck"><Checkbox value="red-and-white-stars"/><img src="/radio/input-stars.png" alt="stars png"/></label>
-                    <label className="inputcheck"><Checkbox value="red-baubles"/><img src="/radio/input-baubles.png" alt="baubles png"/></label>
-                    <label className="inputcheck"><Checkbox value="reeses"/><img src="/radio/input-reeses.png" alt="reeses png"/></label>
-                    <label className="inputcheck"><Checkbox value="smarties"/><img src="/radio/input-smarties.png" alt="smarties png"/></label>
-                    <label className="inputcheck"><Checkbox value="strawberry"/><img src="/radio/input-strawberry.png" alt="strawberry png"/></label>
+                    <label className="inputcheck"><Checkbox value="blackberry"/><img src="/images/radio/input-blackberry.png" alt="blackberry png"/></label>
+                    <label className="inputcheck"><Checkbox value="blueberry"/><img src="/images/radio/input-blueberry.png" alt="blueberry png"/></label>
+                    <label className="inputcheck"><Checkbox value="cherry"/><img src="/images/radio/input-cherry.png" alt="cherry png"/></label>
+                    <label className="inputcheck"><Checkbox value="chocolate-baubles"/><img src="/images/radio/input-chocolate-baubles.png" alt="chocolate png"/></label>
+                    <label className="inputcheck"><Checkbox value="kiwi"/><img src="/images/radio/input-kiwi.png" alt="kiwi png"/></label>
+                    <label className="inputcheck"><Checkbox value="rainbow-sprinkles"/><img src="/images/radio/input-rainbow.png" alt="sprinkles png"/></label>
+                    <label className="inputcheck"><Checkbox value="raspberry"/><img src="/images/radio/input-raspberry.png"alt="raspberry png"/></label>
+                    <label className="inputcheck"><Checkbox value="red-and-white-stars"/><img src="/images/radio/input-stars.png" alt="stars png"/></label>
+                    <label className="inputcheck"><Checkbox value="red-baubles"/><img src="/images/radio/input-baubles.png" alt="baubles png"/></label>
+                    <label className="inputcheck"><Checkbox value="reeses"/><img src="/images/radio/input-reeses.png" alt="reeses png"/></label>
+                    <label className="inputcheck"><Checkbox value="smarties"/><img src="/images/radio/input-smarties.png" alt="smarties png"/></label>
+                    <label className="inputcheck"><Checkbox value="strawberry"/><img src="/images/radio/input-strawberry.png" alt="strawberry png"/></label>
                   </CheckboxGroup>
                 </div>
                 <button type="submit">Add Cupcake To Order</button>
