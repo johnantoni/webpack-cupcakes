@@ -12,8 +12,21 @@
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.18.0",
+    "firebase": "^3.4.1",
+    "history": "4.2.0",
+    "jquery": "^3.1.1",
+    "re-base": "2.2.0",
     "react": "^15.3.1",
+    "react-addons-css-transition-group": "15.3.2",
+    "react-checkbox-group": "^3.0.1",
     "react-dom": "^15.3.1",
-    "webpack": "^1.13.2"
+    "react-fontawesome": "^1.2.0",
+    "react-router": "4.0.0-alpha.3",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0"
   }
 }

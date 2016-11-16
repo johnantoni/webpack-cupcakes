@@ -1,0 +1,292 @@
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background-image: url("/images/background1.png");
+}
+
+.login-background {
+  background-color: #f9f4c5;
+  width: 85%;
+  max-width: 500px;
+  margin: 18% auto;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.errorState {
+  background-color: #fff;
+  color: red;
+}
+.login-background .loginType input {
+  margin-right: 0.2rem;
+}
+
+.login-background .loginType label {
+  margin-right: 1rem;
+  vertical-align: bottom;
+}
+
+.login-background .inputArea label {
+  text-align: left;
+}
+
+.login-background .inputArea input {
+  float: right;
+   width: 75%;
+   height: 2em;
+}
+
+.login-background div {
+  padding: 0.75em 0;
+}
+
+.login-background button {
+  margin: 0.3em 0;
+  border-radius: 15px;
+  width: 100%;
+  padding: 5px;
+  background-color: #D5838D;
+  border: 2px solid #9D0638;
+  color: white;
+  font-size: 28px;
+  padding: 16px 6px;
+}
+
+.signin-logo {
+  margin-top: -23%;
+  text-align: center;
+  width: 100%;
+ }
+
+.logo {
+  width: 96%;
+  margin: 2%;
+}
+
+
+.form {
+  text-align: center;
+  margin-top: 14em;
+  width: 98%;
+  display: inline-block;
+  background-color: #f9f4c5;
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 0 1%;
+  background-image: url("/images/wood.png");
+}
+
+.cupcakeImg {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  text-align:center;
+}
+
+.cupcakeImg .logo {
+  display: none;
+}
+
+canvas {
+   display: inline;
+   height: 220px;
+}
+
+
+
+.cupcakes .radio {
+  display: inline;
+}
+
+.cupcakes input{
+  display: none;
+  margin:0;padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
+}
+
+
+.inputcard{
+    cursor:pointer;
+    width: 31.33333%;
+    margin: 1%;
+    display:inline-block;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1) grayscale(.0) opacity(1);
+       -moz-filter: brightness(1) grayscale(.0) opacity(1);
+            filter: brightness(1) grayscale(.0) opacity(1);
+}
+
+.inputcheck:hover {
+    -webkit-filter: brightness(1) grayscale(.4) opacity(.8);
+       -moz-filter: brightness(1) grayscale(.4) opacity(.8);
+            filter: brightness(1) grayscale(.4) opacity(.8);
+}
+
+.inputcard img{
+    width: 100%;
+}
+
+.checkboxes img {
+  width: 23%;
+  margin: 0 1% 1%;
+}
+
+.inputcard:hover {
+    -webkit-filter: brightness(1) grayscale(.4) opacity(.8);
+       -moz-filter: brightness(1) grayscale(.4) opacity(.8);
+            filter: brightness(1) grayscale(.4) opacity(.8);
+}
+
+.inputcheck img { cursor: pointer; }
+
+.order {
+  background-color: #fff;
+  padding: 0 0.5em;
+  border-radius: 1em;
+  margin: 3%;
+}
+
+.order h2 {
+  font-family: 'Cookie', cursive;
+  text-align: center;
+  font-size: 3em;
+  padding: 0;
+  margin: 0.2em 0 0;
+  color: #D5848E;
+}
+
+.order ul {
+  -webkit-padding-start: 0;
+  list-style: none;
+  margin-top: 0;
+}
+
+.order li {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0.5em 0 0.5em;
+  position: relative;                                                                                                                                                                                    position: relative;
+}
+
+
+
+.order li:last-child {
+border-bottom: none;
+padding-bottom: 0;
+}
+
+.order button {
+  position: absolute;
+  right: 0.5em;
+  top: 1em;
+  background-color: transparent;
+  border: 0;
+  color: #A6A6A6;
+  cursor: pointer;
+}
+
+.order button i {
+font-size: 4em;
+}
+
+.details {
+  width: 60%;
+  display: inline-block;
+  vertical-align: bottom;
+  padding-bottom: 10%;
+}
+
+.form button {
+  margin: 0.75em 0;
+  border-radius: 15px;
+  width: 100%;
+  padding: 5px;
+  background-color: #D5838D;
+  border: 2px solid #9D0638;
+  color: white;
+  font-size: 28px;
+  padding: 16px 6px;
+}
+
+@media screen and (min-width: 600px) {
+  .form {
+    width: 45%;
+    float: left;
+    margin-top: 0;
+  }
+
+  .cupcakeImg {
+    position: relative;
+    width: 53%;
+    background-size: contain;
+    background-position: top;
+  }
+  .order {
+    width: 43%;
+    float: right;
+    overflow-y: scroll;
+    height: 36vh;
+  }
+  canvas {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .form {
+    width: 30%;
+  }
+  .form .logo {
+    display: none;
+  }
+
+  .cupcakeImg {
+    width: 38%;
+    height: 100vh;
+    background-size: cover;
+    background-position: inherit;
+  }
+
+  .cupcakeImg .logo {
+    display: block;
+  }
+
+  .order {
+    width: 23%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 89.5vh;
+  }
+
+  .order li {
+    width: 100%;
+    margin: 0.5em;                                                                                                                                                                            position: relative;
+  }
+  .details {
+    width: 100%;
+    margin: 0.5em 0.5em 0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .form {
+    width: 28%;
+  }
+
+  .cupcakeImg {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .details {
+    width: 60%;
+    margin: 0;
+  }
+}
