@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var CupcakeSchema = new mongoose.Schema({
+var CakeSchema = new mongoose.Schema({
   cake: {
     type: String,
     required: true
@@ -18,4 +18,4 @@ var CupcakeSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Cupcakes', CupcakeSchema);
+module.exports = mongoose.model('Cake', CakeSchema);

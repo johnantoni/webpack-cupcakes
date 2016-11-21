@@ -67,7 +67,8 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: "https://cupcakes-16999.firebaseio.com/.json",
+      // url: "https://cupcakes-16999.firebaseio.com/.json",
+      url: "/api/cakes",
       method: "GET",
       success: (data) => {
         this.setState({ cupcakes: data });

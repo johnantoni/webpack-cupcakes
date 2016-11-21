@@ -14,7 +14,7 @@ app.use(webpackMiddleware(webpack(require('./webpack.config.js'))));
 app.use(express.static('public'));
 
 // Serve your static assets here. You'll need to use express.static middleware.
-app.use('/api/cupcakes', require('./api/cupcakes'));
+app.use('/api/cakes', require('./api/cakes'));
 
 // If none of the above matches, serve public/index.html.
 app.get('*', (req, res) => res.sendFile(__dirname + '/public/index.html'))
