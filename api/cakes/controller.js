@@ -30,16 +30,8 @@ exports.create = function(req, res) {
   });
 }
 
-// exports.show = function(req, res) {
-//   Cake.findById(req.params.id)
-//   .then((cupcakes) => res.send(cupcakes))
-//   .catch((err) => res.send(404));
-// }
-
 exports.delete = function(req, res) {
-  Cake.findById( req.params.id, function ( err, cake ){
-     cake.remove( function ( err, todo ){
-       res.redirect( '/' );
-     });
-   });
- }
+  Cake.findById(req.params.id).remove()
+  .then((cupcakes) => res.status(200))
+  .catch((err) => res.send(404));
+}

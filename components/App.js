@@ -46,7 +46,7 @@ class App extends React.Component {
       url: url,
       method: "DELETE",
       contentType: "application/json; charset=utf-8",
-      success: (data) =>  {
+      success: () =>  {
         const cupcakes = {...this.state.cupcakes};
         delete cupcakes[id];
         this.setState({ cupcakes: cupcakes });
