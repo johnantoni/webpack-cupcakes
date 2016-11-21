@@ -39,7 +39,9 @@ class App extends React.Component {
 
 
   deleteCupcake(id) {
-    var url = `/api/cakes/${id}.json`;
+    console.log(id);
+    let url = `/api/cakes/${id}`;
+    console.log(url);
     $.ajax({
       url: url,
       method: "DELETE",

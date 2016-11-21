@@ -5,6 +5,12 @@ exports.index = function(req, res) {
   .then((cupcakes) => res.send(cupcakes));
 }
 
+exports.show = function(req, res) {
+  Cake.findById(req.params.id)
+  .then((cupcakes) => res.send(cupcakes))
+  .catch((err) => res.send(404));
+}
+
 exports.create = function(req, res) {
   var cake = new Cake();
 
@@ -24,8 +30,16 @@ exports.create = function(req, res) {
   });
 }
 
+// exports.show = function(req, res) {
+//   Cake.findById(req.params.id)
+//   .then((cupcakes) => res.send(cupcakes))
+//   .catch((err) => res.send(404));
+// }
+
 exports.delete = function(req, res) {
-  Cake.remove(req.params.id)
-  .then((cakes) => res.send(cakes))
-  .catch((err) => res.send(404));
-}
+  Cake.findById( req.params.id, function ( err, cake ){
+     cake.remove( function ( err, todo ){
+       res.redirect( '/' );
+     });
+   });
+ }

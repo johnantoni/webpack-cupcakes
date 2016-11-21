@@ -21,7 +21,7 @@ class Order extends React.Component {
                   <div className="cakedetails">{ cake }</div>
                   <div className="icingdetails">{ icing }</div>
                   <div className="toppingsdetails">{toppings.join(" ")}</div>
-                  <div><button onClick={()=>this.props.deleteCupcake(cupcake) }><i className="fa fa-times" aria-hidden="true"></i></button></div>
+                  <div><button onClick={()=>this.props.deleteCupcake(cupcakes[cupcake]._id) }><i className="fa fa-times" aria-hidden="true"></i></button></div>
                   </div>
                   </li>
               })}
