@@ -7,6 +7,9 @@ var webpackMiddleware = require('webpack-dev-middleware');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/cupcakes');
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+
 // Serve bundle.js
 app.use(webpackMiddleware(webpack(require('./webpack.config.js'))));
 

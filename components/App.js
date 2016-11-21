@@ -24,8 +24,9 @@ class App extends React.Component {
     let cupcakes = this.state.cupcakes || {};
     console.log(cupcakes);
     $.ajax({
-      url: "https://cupcakes-16999.firebaseio.com/.json",
+      url: "/api/cakes",
       method: "POST",
+      contentType: "application/json; charset=utf-8",
       data: JSON.stringify(cupcake),
       success: (data) => {
         // append new cupcake to object list using name as key
@@ -38,10 +39,11 @@ class App extends React.Component {
 
 
   deleteCupcake(id) {
-    var url = `https://cupcakes-16999.firebaseio.com/${id}.json`;
+    var url = `/api/cakes/${id}.json`;
     $.ajax({
       url: url,
       method: "DELETE",
+      contentType: "application/json; charset=utf-8",
       success: (data) =>  {
         const cupcakes = {...this.state.cupcakes};
         delete cupcakes[id];
@@ -67,7 +69,6 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      // url: "https://cupcakes-16999.firebaseio.com/.json",
       url: "/api/cakes",
       method: "GET",
       success: (data) => {

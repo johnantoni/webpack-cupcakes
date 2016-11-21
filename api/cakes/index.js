@@ -4,5 +4,6 @@ var controller = require('./controller');
 
 router.get('/', controller.index);
 router.post('/', controller.create);
+router.delete('/:id', controller.delete);
 
 module.exports = router;
