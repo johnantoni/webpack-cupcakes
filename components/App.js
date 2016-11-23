@@ -30,9 +30,8 @@ class App extends React.Component {
       data: JSON.stringify(cupcake),
       success: (data) => {
         // append new cupcake to object list using name as key
-        console.log(data);
-        let id = `${data._id}`;
-        cupcakes.push(cupcake);
+        console.log("CUPCAKE ADDED", data, cupcake);
+        cupcakes.push(data);
         this.setState({cupcakes});
       }
     })
@@ -51,9 +50,6 @@ class App extends React.Component {
         let cupcakes = this.state.cupcakes;
         let cupcakeIndex = cupcakes.findIndex((cupcake) => cupcake._id === id)
         cupcakes.splice(cupcakeIndex, 1);
-        console.log(cupcakeIndex);
-        console.log(cupcakes)
-
         this.setState({ cupcakes: cupcakes });
       }
     });

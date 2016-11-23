@@ -10,6 +10,9 @@ class Cart extends React.Component {
       return (
         <div className="Cart"><h2>Cart Form</h2><ul>
               { cupcakes.map( (cupcake, index) => {
+                console.log(cupcake);
+                let id = cupcake._id;
+                console.log(id);
                 let toppings = cupcake.toppings || [];
                 let cake = cupcake.cake;
                 cake = cake.replace(/[-]/g, ' ');
@@ -21,7 +24,7 @@ class Cart extends React.Component {
                   <div className="cakedetails">{ cake }</div>
                   <div className="icingdetails">{ icing }</div>
                   <div className="toppingsdetails">{toppings.join(" ")}</div>
-                  <div><button onClick={()=>this.props.deleteCupcake(cupcake._id) }><i className="fa fa-times" aria-hidden="true"></i></button></div>
+                  <div><button onClick={()=>this.props.deleteCupcake(id) }><i className="fa fa-times" aria-hidden="true"></i></button></div>
                   </div>
                   </li>
               })}
