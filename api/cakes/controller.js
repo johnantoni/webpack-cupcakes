@@ -25,13 +25,13 @@ exports.create = function(req, res) {
   .then(function(cake) {
     res.send(cake);
   }).catch(function(err) {
-    res.status(422);
+    res.sendStatus(422)
     res.send(err);
   });
 }
 
 exports.delete = function(req, res) {
   Cake.findById(req.params.id).remove()
-  .then((cupcakes) => res.status(200))
+  .then(() => res.sendStatus(200))
   .catch((err) => res.send(404));
 }

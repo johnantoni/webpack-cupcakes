@@ -3,7 +3,7 @@ import $ from 'jquery';
 // import '../css/style.css';
 import Login from './login';
 import CreateCupcake from './CreateCupcake';
-import Order from './Order';
+import Cart from './Cart';
 
 class App extends React.Component {
   constructor() {
@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       currentUser: null,
       loggedIn: true,
-      cupcakes: {}
+      cupcakes: []
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.deleteCupcake = this.deleteCupcake.bind(this);
@@ -21,8 +21,8 @@ class App extends React.Component {
   addCupcake(cupcake) {
     // update our state
     // get cupcakes, if empty initialize cupcakes object
-    let cupcakes = this.state.cupcakes || {};
-    console.log(cupcakes);
+    let cupcakes = this.state.cupcakes || [] ;
+    // console.log(cu`pcakes);
     $.ajax({
       url: "/api/cakes",
       method: "POST",
@@ -30,8 +30,9 @@ class App extends React.Component {
       data: JSON.stringify(cupcake),
       success: (data) => {
         // append new cupcake to object list using name as key
-        let name = `${data.name}`;
-        cupcakes[name] = cupcake;
+        console.log(data);
+        let id = `${data._id}`;
+        cupcakes.push(cupcake);
         this.setState({cupcakes});
       }
     })
@@ -47,8 +48,12 @@ class App extends React.Component {
       method: "DELETE",
       contentType: "application/json; charset=utf-8",
       success: () =>  {
-        const cupcakes = {...this.state.cupcakes};
-        delete cupcakes[id];
+        let cupcakes = this.state.cupcakes;
+        let cupcakeIndex = cupcakes.findIndex((cupcake) => cupcake._id === id)
+        cupcakes.splice(cupcakeIndex, 1);
+        console.log(cupcakeIndex);
+        console.log(cupcakes)
+
         this.setState({ cupcakes: cupcakes });
       }
     });
@@ -59,7 +64,7 @@ class App extends React.Component {
       return (
         <div>
         <CreateCupcake addCupcake={this.addCupcake}/>
-        <Order cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
+        <Cart cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
       </div>
       )
     } else {

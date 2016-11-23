@@ -184,7 +184,7 @@ class CreateCupcake extends React.Component {
                     <label className="inputcheck"><Checkbox value="strawberry"/><img src="/images/radio/input-strawberry.png" alt="strawberry png"/></label>
                   </CheckboxGroup>
                 </div>
-                <button type="submit">Add Cupcake To Order</button>
+                <button type="submit">Add Cupcake To Cart</button>
             </form>
           </div>
         </div>

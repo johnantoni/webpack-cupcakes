@@ -9,7 +9,7 @@ body {
   width: 85%;
   max-width: 500px;
   margin: 18% auto;
-  border-radius: 1em;
+  bCart-radius: 1em;
   padding: 1em;
 }
 
@@ -42,11 +42,11 @@ body {
 
 .login-background button {
   margin: 0.3em 0;
-  border-radius: 15px;
+  bCart-radius: 15px;
   width: 100%;
   padding: 5px;
   background-color: #D5838D;
-  border: 2px solid #9D0638;
+  bCart: 2px solid #9D0638;
   color: white;
   font-size: 28px;
   padding: 16px 6px;
@@ -146,14 +146,14 @@ canvas {
 
 .inputcheck img { cursor: pointer; }
 
-.order {
+.Cart {
   background-color: #fff;
   padding: 0 0.5em;
-  border-radius: 1em;
+  bCart-radius: 1em;
   margin: 3%;
 }
 
-.order h2 {
+.Cart h2 {
   font-family: 'Cookie', cursive;
   text-align: center;
   font-size: 3em;
@@ -162,26 +162,26 @@ canvas {
   color: #D5848E;
 }
 
-.order ul {
+.Cart ul {
   -webkit-padding-start: 0;
   list-style: none;
   margin-top: 0;
 }
 
-.order li {
-  border-bottom: 1px solid #f2f2f2;
+.Cart li {
+  bCart-bottom: 1px solid #f2f2f2;
   padding: 0.5em 0 0.5em;
   position: relative;                                                                                                                                                                                    position: relative;
 }
 
 
 
-.order li:last-child {
-border-bottom: none;
+.Cart li:last-child {
+bCart-bottom: none;
 padding-bottom: 0;
 }
 
-.order button {
+.Cart button {
   position: absolute;
   right: 0.5em;
   top: 1em;
@@ -191,7 +191,7 @@ padding-bottom: 0;
   cursor: pointer;
 }
 
-.order button i {
+.Cart button i {
 font-size: 4em;
 }
 
@@ -204,11 +204,11 @@ font-size: 4em;
 
 .form button {
   margin: 0.75em 0;
-  border-radius: 15px;
+  bCart-radius: 15px;
   width: 100%;
   padding: 5px;
   background-color: #D5838D;
-  border: 2px solid #9D0638;
+  bCart: 2px solid #9D0638;
   color: white;
   font-size: 28px;
   padding: 16px 6px;
@@ -227,7 +227,7 @@ font-size: 4em;
     background-size: contain;
     background-position: top;
   }
-  .order {
+  .Cart {
     width: 43%;
     float: right;
     overflow-y: scroll;
@@ -257,7 +257,7 @@ font-size: 4em;
     display: block;
   }
 
-  .order {
+  .Cart {
     width: 23%;
     position: absolute;
     right: 0;
@@ -265,7 +265,7 @@ font-size: 4em;
     height: 89.5vh;
   }
 
-  .order li {
+  .Cart li {
     width: 100%;
     margin: 0.5em;                                                                                                                                                                            position: relative;
   }
