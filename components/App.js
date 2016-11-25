@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Login from './login';
 import CreateCupcake from './CreateCupcake';
 import Cart from './Cart';
+import Order from './Order';
 
 class App extends React.Component {
   constructor() {

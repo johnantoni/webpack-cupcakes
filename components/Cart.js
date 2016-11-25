@@ -8,7 +8,7 @@ class Cart extends React.Component {
     // console.log(cupcakes);
     if (cupcakes.length > 0) {
       return (
-        <div className="Cart"><h2>Cart Form</h2><ul>
+        <div className="Cart"><h2>Cart</h2><ul>
               { cupcakes.map( (cupcake, index) => {
                 console.log(cupcake);
                 let id = cupcake._id;
