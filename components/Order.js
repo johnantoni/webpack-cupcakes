@@ -8,9 +8,6 @@ class Order extends React.Component {
     this.state = {
       orders: []
     };
-    // this.addCupcake = this.addCupcake.bind(this);
-    // this.deleteCupcake = this.deleteCupcake.bind(this);
-    // this.loginUser = this.loginUser.bind(this);
   }
 
 

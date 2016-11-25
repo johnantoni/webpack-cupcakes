@@ -1,6 +1,7 @@
 var Order = require('./model.js');
 
 exports.index = function(req, res) {
+  console.log("22");
   Order.find()
   .then((orders) => res.send(orders));
 }
