@@ -5,14 +5,11 @@ class Cart extends React.Component {
 
   render() {
     let cupcakes = this.props.cupcakes;
-    // console.log(cupcakes);
     if (cupcakes.length > 0) {
       return (
         <div className="Cart"><h2>Cart</h2><ul>
               { cupcakes.map( (cupcake, index) => {
-                console.log(cupcake);
                 let id = cupcake._id;
-                console.log(id);
                 let toppings = cupcake.toppings || [];
                 let cake = cupcake.cake;
                 cake = cake.replace(/[-]/g, ' ');

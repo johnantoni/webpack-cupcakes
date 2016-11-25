@@ -14,8 +14,6 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   var cake = new Cake();
 
-  console.log(req.body);
-
   cake.cake = req.body.cake;
   cake.icing = req.body.icing;
   cake.image = req.body.image;

@@ -23,7 +23,6 @@ class App extends React.Component {
     // update our state
     // get cupcakes, if empty initialize cupcakes object
     let cupcakes = this.state.cupcakes || [] ;
-    // console.log(cu`pcakes);
     $.ajax({
       url: "/api/cakes",
       method: "POST",
@@ -31,7 +30,6 @@ class App extends React.Component {
       data: JSON.stringify(cupcake),
       success: (data) => {
         // append new cupcake to object list using name as key
-        console.log("CUPCAKE ADDED", data, cupcake);
         cupcakes.push(data);
         this.setState({cupcakes});
       }
@@ -40,9 +38,7 @@ class App extends React.Component {
 
 
   deleteCupcake(id) {
-    console.log(id);
     let url = `/api/cakes/${id}`;
-    console.log(url);
     $.ajax({
       url: url,
       method: "DELETE",
@@ -77,7 +73,6 @@ class App extends React.Component {
       method: "GET",
       success: (data) => {
         this.setState({ cupcakes: data });
-        // console.log(data);
       }
     })
   }

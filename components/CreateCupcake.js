@@ -65,7 +65,6 @@ class CreateCupcake extends React.Component {
   }
 
   toppingsSrc(ctx, arr) {
-    // console.log(arr);
     ctx.clearRect(0,0,360,480);
     arr.forEach((item) => {
       this.addImage(ctx, item)
@@ -92,11 +91,9 @@ class CreateCupcake extends React.Component {
 
   updateCanvas() {
     const srcToppings = this.state.toppings;
-    // console.log(srcToppings);
     let addToppings = srcToppings.map((item) => {
       return `${item}.png`;
     });
-    // console.log(addToppings);
 
     let cakeSrc = `${this.state.cake}.png`;
     let icingSrc = `${this.state.icing}.png`;
