@@ -1,11 +1,13 @@
 import React from 'react'
 import $ from 'jquery';
 // import '../css/style.css';
+import { Router, Route, Link, browserHistory } from 'react-router'
 import Login from './login';
 import CreateCupcake from './CreateCupcake';
 import Cart from './Cart';
 
 class App extends React.Component {
+
   constructor() {
     super();
     this.state = {
@@ -53,12 +55,18 @@ class App extends React.Component {
 
   render() {
     if (this.state.loggedIn) {
-      return (
-        <div>
-        <CreateCupcake addCupcake={this.addCupcake}/>
-        <Cart cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
-      </div>
-      )
+      if (this.props.children) {
+        return React.cloneElement(this.props.children, {
+          cupcakes: this.state.cupcakes
+        });
+      } else {
+        return (
+          <div>
+          <CreateCupcake addCupcake={this.addCupcake}/>
+          <Cart cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
+        </div>
+        )
+      }
     } else {
       return (
         <Login onLogin={ this.loginUser } />

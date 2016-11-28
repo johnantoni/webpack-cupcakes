@@ -9,7 +9,7 @@ body {
   width: 85%;
   max-width: 500px;
   margin: 18% auto;
-  bCart-radius: 1em;
+  border-radius: 1em;
   padding: 1em;
 }
 
@@ -42,11 +42,11 @@ body {
 
 .login-background button {
   margin: 0.3em 0;
-  bCart-radius: 15px;
+  border-radius: 15px;
   width: 100%;
   padding: 5px;
   background-color: #D5838D;
-  bCart: 2px solid #9D0638;
+  border: 2px solid #9D0638;
   color: white;
   font-size: 28px;
   padding: 16px 6px;
@@ -149,7 +149,7 @@ canvas {
 .Cart {
   background-color: #fff;
   padding: 0 0.5em;
-  bCart-radius: 1em;
+  border-radius: 1em;
   margin: 3%;
 }
 
@@ -169,7 +169,7 @@ canvas {
 }
 
 .Cart li {
-  bCart-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
   padding: 0.5em 0 0.5em;
   position: relative;                                                                                                                                                                                    position: relative;
 }
@@ -177,7 +177,7 @@ canvas {
 
 
 .Cart li:last-child {
-bCart-bottom: none;
+border-bottom: none;
 padding-bottom: 0;
 }
 
@@ -204,14 +204,35 @@ font-size: 4em;
 
 .form button {
   margin: 0.75em 0;
-  bCart-radius: 15px;
+  border-radius: 15px;
   width: 100%;
   padding: 5px;
   background-color: #D5838D;
-  bCart: 2px solid #9D0638;
+  border: 2px solid #9D0638;
   color: white;
   font-size: 28px;
   padding: 16px 6px;
+}
+
+.Checkout {
+  width: 91%;
+  float: right;
+  right: 0;
+  bottom: 0;
+  margin: 3% 3% 1.5%;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: #D5838D;
+  border: 2px solid #9D0638;
+  color: white;
+  font-size: 28px;
+  padding: 16px 6px;
+  text-align: center;
+}
+
+.Checkout a {
+  color: #fff;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 600px) {
@@ -233,8 +254,12 @@ font-size: 4em;
     overflow-y: scroll;
     height: 36vh;
   }
+  .Checkout {
+    position: absolute;
+    width: 43%;
+  }
   canvas {
-    height: 400px;
+    height: 286px;
   }
 }
 
@@ -262,12 +287,16 @@ font-size: 4em;
     position: absolute;
     right: 0;
     top: 0;
-    height: 89.5vh;
+    height: 80.5vh;
   }
 
   .Cart li {
     width: 100%;
     margin: 0.5em;                                                                                                                                                                            position: relative;
+  }
+
+  .Checkout  {
+    width: 23%;
   }
   .details {
     width: 100%;
