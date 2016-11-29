@@ -10,13 +10,16 @@ exports.create = function(req, res) {
 
   console.log (item);
 
-  CartItem.item = {};
-  CartItem.item.cake = req.body.cake;
-  CartItem.item.icing = req.body.icing;
-  CartItem.item.image = req.body.image;
-  CartItem.item.toppings = req.body.toppings
+  item.item = {};
+  item.item.cake = req.body.cake;
+  item.item.icing = req.body.icing;
+  item.item.image = req.body.image;
+  item.item.toppings = req.body.toppings
 
-  CartItem.save()
+
+    console.log (item);
+
+  item.save()
   .then(function(item) {
     res.send(item);
   }).catch(function(err) {

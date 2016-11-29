@@ -61,7 +61,7 @@ class App extends React.Component {
       data: JSON.stringify(item),
       success: (data) => {
         // append new cupcake to object list using name as key
-        cupcakes.push(data);
+        cart.push(data);
         this.setState({cart});
       }
     })
@@ -116,6 +116,7 @@ class App extends React.Component {
       url: "/api/cart",
       method: "GET",
       success: (data) => {
+        console.log(data);
         this.setState({ cart: data })
         console.log(this.state.cart)
       }
