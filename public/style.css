@@ -292,7 +292,7 @@ font-size: 4em;
 
   .Cart li {
     width: 100%;
-    margin: 0.5em;                                                                                                                                                                            position: relative;
+    margin: 0.5em;                                                                                                                              position: relative;
   }
 
   .Checkout  {
@@ -303,6 +303,18 @@ font-size: 4em;
     margin: 0.5em 0.5em 0;
   }
 }
+
+
+
+.item {
+  display: inline-block;
+  width: 40%;
+}
+.price, .quanity, .subtotal{
+  display: inline-block;
+  width: 15%;
+}
+
 
 @media screen and (min-width: 1000px) {
   .form {

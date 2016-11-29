@@ -13,10 +13,12 @@ class App extends React.Component {
     this.state = {
       currentUser: null,
       loggedIn: true,
-      cupcakes: []
+      cupcakes: [],
+      cart: []
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.deleteCupcake = this.deleteCupcake.bind(this);
+    this.createLineItem = this.createLineItem.bind(this);
     this.loginUser = this.loginUser.bind(this);
   }
 
@@ -30,13 +32,40 @@ class App extends React.Component {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(cupcake),
       success: (data) => {
+        this.createLineItem(data);
         // append new cupcake to object list using name as key
         cupcakes.push(data);
         this.setState({cupcakes});
+
       }
     })
   }
 
+  createLineItem(data) {
+    let cart = this.state.cart || [] ;
+    console.log(data);
+    const item = {
+      item: {
+        cake: data.cake,
+        icing: data.icing,
+        image: data.image,
+        toppings: data.toppings,
+      }
+    }
+    console.log(item);
+
+    $.ajax({
+      url: "/api/cart",
+      method: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(item),
+      success: (data) => {
+        // append new cupcake to object list using name as key
+        cart.push(data);
+        this.setState({cart});
+      }
+    })
+  }
 
   deleteCupcake(id) {
     let url = `/api/cakes/${id}`;
@@ -52,6 +81,7 @@ class App extends React.Component {
       }
     });
   }
+
 
   render() {
     if (this.state.loggedIn) {
@@ -79,7 +109,8 @@ class App extends React.Component {
       url: "/api/cakes",
       method: "GET",
       success: (data) => {
-        this.setState({ cupcakes: data });
+        this.setState({ cupcakes: data })
+        this.createLineItem();;
       }
     })
   }

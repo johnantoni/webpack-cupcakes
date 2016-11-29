@@ -14,7 +14,7 @@ var BillingSchema = new mongoose.Schema({
     enum: ['Visa', 'MasterCard', 'Amex']
   },
   name: String,
-  number: String,
+  number: Number,
   expiremonth: Number,
   expireYear: Number,
   Address: AddressSchema
@@ -28,7 +28,11 @@ var CustomerSchema = new mongoose.Schema({
     required: true
   },
   shipping: AddressSchema,
-  billing: BillingSchema
+  billing: BillingSchema,
+  cart: {
+   type: [mongoose.Schema.Types.ObjectId],
+   ref: 'Cakes'
+  }
 });
 
 module.exports = mongoose.model('Customer', CustomerSchema);

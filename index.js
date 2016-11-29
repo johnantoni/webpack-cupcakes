@@ -18,10 +18,11 @@ app.use(express.static('public'));
 
 // Serve your static assets here. You'll need to use express.static middleware.
 app.use('/api/cakes', require('./api/cakes'));
+app.use('/api/cart', require('./api/cart'));
 app.use('/api/orders', require('./api/orders'));
 require('./api/customers/model');
 
 // If none of the above matches, serve public/index.html.
 app.get('*', (req, res) => res.sendFile(__dirname + '/public/index.html'))
 
-app.listen(8080);
+app.listen(8081);
