@@ -5,6 +5,7 @@ var webpack = require('webpack');
 var webpackMiddleware = require('webpack-dev-middleware');
 
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise; // clear mongo's promise depreciation warning : https://github.com/Automattic/mongoose/issues/4291
 mongoose.connect('mongodb://localhost/cupcakes');
 
 var bodyParser = require('body-parser');
