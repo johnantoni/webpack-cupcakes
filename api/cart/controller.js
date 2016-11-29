@@ -1,4 +1,4 @@
-var Cart = require('./model.js');
+var CartItem = require('./model.js');
 
 exports.index = function(req, res) {
   CartItem.find()
@@ -10,20 +10,19 @@ exports.create = function(req, res) {
 
   console.log (item);
 
-  // CartItem.item = {
-  //   cake = req.body.cake,
-  //   icing = req.body.icing,
-  //   image = req.body.image,
-  //   toppings = req.body.toppings
-  // }
+  CartItem.item = {};
+  CartItem.item.cake = req.body.cake;
+  CartItem.item.icing = req.body.icing;
+  CartItem.item.image = req.body.image;
+  CartItem.item.toppings = req.body.toppings
 
-  // CartItem.save()
-  // .then(function(item) {
-  //   res.send(item);
-  // }).catch(function(err) {
-  //   res.sendStatus(422)
-  //   res.send(err);
-  // });
+  CartItem.save()
+  .then(function(item) {
+    res.send(item);
+  }).catch(function(err) {
+    res.sendStatus(422)
+    res.send(err);
+  });
 }
 
 exports.delete = function(req, res) {

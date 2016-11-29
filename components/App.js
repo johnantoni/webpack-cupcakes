@@ -14,7 +14,7 @@ class App extends React.Component {
       currentUser: null,
       loggedIn: true,
       cupcakes: [],
-      cart: []
+      cart: {}
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.deleteCupcake = this.deleteCupcake.bind(this);
@@ -61,7 +61,7 @@ class App extends React.Component {
       data: JSON.stringify(item),
       success: (data) => {
         // append new cupcake to object list using name as key
-        cart.push(data);
+        cupcakes.push(data);
         this.setState({cart});
       }
     })
@@ -110,9 +110,17 @@ class App extends React.Component {
       method: "GET",
       success: (data) => {
         this.setState({ cupcakes: data })
-        this.createLineItem();;
+      }
+    });
+    $.ajax({
+      url: "/api/cart",
+      method: "GET",
+      success: (data) => {
+        this.setState({ cart: data })
+        console.log(this.state.cart)
       }
     })
+
   }
 
   loginUser(email) {

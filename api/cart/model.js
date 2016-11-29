@@ -17,7 +17,15 @@ var CartSchema = new mongoose.Schema({
     toppings: {
       type: Array
     },
-  }
+  },
+  price: {
+    type: Number,
+    default: "1.99"
+  },
+  quanity: {
+    type: Number,
+    default: 1
+  },
 });
 
 module.exports = mongoose.model('CartItem', CartSchema);
