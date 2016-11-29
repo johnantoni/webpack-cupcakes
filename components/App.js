@@ -32,27 +32,28 @@ class App extends React.Component {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(cupcake),
       success: (data) => {
-        this.createLineItem(data);
         // append new cupcake to object list using name as key
         cupcakes.push(data);
         this.setState({cupcakes});
-
+        this.createLineItem(data);
       }
     })
   }
 
   createLineItem(data) {
-    let cart = this.state.cart || [] ;
-    console.log(data);
+
     const item = {
-      item: {
-        cake: data.cake,
-        icing: data.icing,
-        image: data.image,
-        toppings: data.toppings,
-      }
-    }
+    cake: data.cake,
+    icing: data.icing,
+    image: data.image,
+    toppings: data.toppings
+  }
+
     console.log(item);
+
+
+
+    let cart = this.state.cart || [] ;
 
     $.ajax({
       url: "/api/cart",
@@ -116,11 +117,11 @@ class App extends React.Component {
       url: "/api/cart",
       method: "GET",
       success: (data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({ cart: data })
-        console.log(this.state.cart)
       }
-    })
+    });
+    // console.log(this.state.cart)
 
   }
 

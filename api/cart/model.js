@@ -16,7 +16,7 @@ var CartSchema = new mongoose.Schema({
     },
     toppings: {
       type: Array
-    },
+    }
   },
   price: {
     type: Number,

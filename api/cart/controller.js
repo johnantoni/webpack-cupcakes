@@ -6,22 +6,20 @@ exports.index = function(req, res) {
 }
 
 exports.create = function(req, res) {
-  var item = new CartItem();
+  var newItem = new CartItem();
 
-  console.log (item);
+  // console.log (req.body);
 
-  item.item = {};
-  item.item.cake = req.body.cake;
-  item.item.icing = req.body.icing;
-  item.item.image = req.body.image;
-  item.item.toppings = req.body.toppings
+  newItem.item.cake = req.body.cake,
+  newItem.item.icing = req.body.icing,
+  newItem.item.image = req.body.image,
+  newItem.item.toppings = req.body.toppings
 
+  // console.log (newItem);
 
-    console.log (item);
-
-  item.save()
-  .then(function(item) {
-    res.send(item);
+  newItem.save()
+  .then(function(newItem) {
+    res.send(newItem);
   }).catch(function(err) {
     res.sendStatus(422)
     res.send(err);
