@@ -8,6 +8,9 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise; // clear mongo's promise depreciation warning : https://github.com/Automattic/mongoose/issues/4291
 mongoose.connect('mongodb://localhost/cupcakes');
 
+// add bluebird
+var Promise = require("bluebird");
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '50mb'}));
 
