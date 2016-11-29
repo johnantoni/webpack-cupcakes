@@ -2,4 +2,4 @@
 
 run with:
 
-    webpack-dev-server --progress
+	nodemon index.js
