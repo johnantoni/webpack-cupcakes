@@ -43,6 +43,7 @@ class App extends React.Component {
   createLineItem(data) {
 
     const item = {
+    cake: data._id,
     cake: data.cake,
     icing: data.icing,
     image: data.image,
@@ -64,17 +65,35 @@ class App extends React.Component {
     })
   }
 
+  deleteLineItem(data) {
+
+    let cart = this.state.cart || [] ;
+
+    $.ajax({
+      url: "/api/cart",
+      method: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(item),
+      success: (data) => {
+        // append new cupcake to object list using name as key
+        cart.push(data);
+        this.setState({cart});
+      }
+    })
+  }
+
+
   deleteCupcake(id) {
-    let url = `/api/cakes/${id}`;
+    let url = `/api/cart/${id}`;
     $.ajax({
       url: url,
       method: "DELETE",
       contentType: "application/json; charset=utf-8",
       success: () =>  {
-        let cupcakes = this.state.cupcakes;
-        let cupcakeIndex = cupcakes.findIndex((cupcake) => cupcake._id === id)
-        cupcakes.splice(cupcakeIndex, 1);
-        this.setState({ cupcakes: cupcakes });
+        let cart = this.state.cart;
+        let cupcakeIndex = cart.findIndex((item) => item._id === id)
+        cart.splice(cupcakeIndex, 1);
+        this.setState({ cart: cart });
       }
     });
   }

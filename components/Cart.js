@@ -5,22 +5,24 @@ import Checkout from './Checkout';
 
 class Cart extends React.Component {
   render() {
-    let cupcakes = this.props.cupcakes;
-    if (cupcakes.length > 0) {
+    let LineItem = this.props.cart;
+    if (LineItem.length > 0) {
       return (
         <div>
           <div className="Cart">
             <h2>Cart</h2>
               <ul>
-                { cupcakes.map( (cupcake, index) => {
-                  let id = cupcake._id;
-                  let toppings = cupcake.toppings || [];
-                  let cake = cupcake.cake;
-                  cake = cake.replace(/[-]/g, ' ');
-                  let icing = cupcake.icing;
-                  icing = icing.replace(/[-]/g, ' ');
+              { LineItem.map( (item, index) => {
+                let id = item._id;
+                let image = item.item.image;
+                let toppings = item.item.toppings || [];
+                let cake = item.item.cake;
+                cake = cake.replace(/[-]/g, ' ');
+                let icing = item.item.icing;
+                icing = icing.replace(/[-]/g, ' ');
+                console.log(item.item.toppings)
                   return <li key={ index } >
-                    <img width="40%" height="auto;" alt="star" src={cupcake.image }/>
+                    <img width="40%" height="auto;" alt="star" src={ image }/>
                     <div className="details">
                     <div className="cakedetails">{ cake }</div>
                     <div className="icingdetails">{ icing }</div>

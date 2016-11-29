@@ -1,6 +1,7 @@
 import React from 'react'
 
 class Checkout extends React.Component {
+
   render() {
     let LineItem = this.props.cart;
     if (LineItem.length > 0) {
@@ -33,7 +34,6 @@ class Checkout extends React.Component {
             <div className="item">
               <img width="40%" height="auto;" alt="star" src={ item.item.image }/>
               <div className="details">
-                <div className="cakedetails">{ id }</div>
                 <div className="cakedetails">{ cake }</div>
                 <div className="icingdetails">{ icing }</div>
                 <div className="toppingsdetails">{toppings}</div>

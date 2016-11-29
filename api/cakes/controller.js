@@ -27,9 +27,3 @@ exports.create = function(req, res) {
     res.send(err);
   });
 }
-
-exports.delete = function(req, res) {
-  Cake.findById(req.params.id).remove()
-  .then(() => res.sendStatus(200))
-  .catch((err) => res.send(404));
-}

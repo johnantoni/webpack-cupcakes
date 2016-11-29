@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 
 var CartSchema = new mongoose.Schema({
   item: {
+    id: {
+      type: String,
+      // required: true
+    },
     cake: {
       type: String,
       // required: true
