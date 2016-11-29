@@ -20,6 +20,7 @@ class App extends React.Component {
     this.deleteCupcake = this.deleteCupcake.bind(this);
     this.createLineItem = this.createLineItem.bind(this);
     this.loginUser = this.loginUser.bind(this);
+    this.changeQuantity = this.changeQuantity.bind(this);
   }
 
   addCupcake(cupcake) {
@@ -65,21 +66,11 @@ class App extends React.Component {
     })
   }
 
-  deleteLineItem(data) {
+  changeQuantity(val) {
 
     let cart = this.state.cart || [] ;
+    console.log(cart);
 
-    $.ajax({
-      url: "/api/cart",
-      method: "POST",
-      contentType: "application/json; charset=utf-8",
-      data: JSON.stringify(item),
-      success: (data) => {
-        // append new cupcake to object list using name as key
-        cart.push(data);
-        this.setState({cart});
-      }
-    })
   }
 
 
@@ -110,7 +101,7 @@ class App extends React.Component {
         return (
           <div>
           <CreateCupcake addCupcake={this.addCupcake}/>
-          <Cart cupcakes={this.state.cupcakes} cart={this.state.cart} deleteCupcake={this.deleteCupcake}/>
+          <Cart cupcakes={this.state.cupcakes} cart={this.state.cart} changeQuantity={this.state.changeQuantity} deleteCupcake={this.deleteCupcake}/>
         </div>
         )
       }

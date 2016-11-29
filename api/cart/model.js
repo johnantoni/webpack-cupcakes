@@ -26,7 +26,7 @@ var CartSchema = new mongoose.Schema({
     type: Number,
     default: "1.99"
   },
-  quanity: {
+  quantity: {
     type: Number,
     default: 1
   },

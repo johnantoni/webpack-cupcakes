@@ -2,6 +2,15 @@ import React from 'react'
 
 class Checkout extends React.Component {
 
+  constructor() {
+    super();
+    this.calTotal = this.calTotal.bind(this);
+  }
+
+  calTotal(price, quantity) {
+    return quantity * price
+  }
+
   render() {
     let LineItem = this.props.cart;
     if (LineItem.length > 0) {
@@ -18,8 +27,8 @@ class Checkout extends React.Component {
       <div className="quanity">
         <h2>Quantity</h2>
       </div>
-      <div className="subtotal">
-        <h2>Subtotal</h2>
+      <div className="total">
+        <h2>total</h2>
       </div>
       <div>
         { LineItem.map( (item, index) => {
@@ -28,8 +37,10 @@ class Checkout extends React.Component {
           let cake = item.item.cake;
           cake = cake.replace(/[-]/g, ' ');
           let icing = item.item.icing;
+          let price = item.price;
+          let quantity = item.quantity;
+          let total = this.calTotal(quantity, price);
           icing = icing.replace(/[-]/g, ' ');
-          console.log(item.item.toppings)
           return <div key={ index } >
             <div className="item">
               <img width="40%" height="auto;" alt="star" src={ item.item.image }/>
@@ -40,10 +51,14 @@ class Checkout extends React.Component {
               </div>
             </div>
             <div className="price">
-              { item.price }
+              { price }
             </div>
-            <div className="quanity">
-             <input type="number" name="quanity" />
+            <div className="quantity">
+              { quantity }
+            </div>
+            <div className="total">
+            {total}
+
             </div>
           </div>
         })}

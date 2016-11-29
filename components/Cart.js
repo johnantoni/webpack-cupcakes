@@ -27,6 +27,7 @@ class Cart extends React.Component {
                     <div className="cakedetails">{ cake }</div>
                     <div className="icingdetails">{ icing }</div>
                     <div className="toppingsdetails">{toppings.join(" ")}</div>
+                    <input type="number" name={id} placeholder={item.quantity} />
                     <div><button onClick={()=>this.props.deleteCupcake(id) }><i className="fa fa-times" aria-hidden="true"></i></button></div>
                     </div>
                     </li>

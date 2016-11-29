@@ -310,7 +310,7 @@ font-size: 4em;
   display: inline-block;
   width: 40%;
 }
-.price, .quanity, .subtotal{
+.price, .quantity, .total {
   display: inline-block;
   width: 15%;
 }
