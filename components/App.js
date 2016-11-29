@@ -20,7 +20,7 @@ class App extends React.Component {
     this.deleteCupcake = this.deleteCupcake.bind(this);
     this.createLineItem = this.createLineItem.bind(this);
     this.loginUser = this.loginUser.bind(this);
-    this.changeQuantity = this.changeQuantity.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   addCupcake(cupcake) {
@@ -66,11 +66,8 @@ class App extends React.Component {
     })
   }
 
-  changeQuantity(val) {
-
-    let cart = this.state.cart || [] ;
-    console.log(cart);
-
+  handleChange(val, id) {
+    console.log(id, val)
   }
 
 
@@ -101,7 +98,7 @@ class App extends React.Component {
         return (
           <div>
           <CreateCupcake addCupcake={this.addCupcake}/>
-          <Cart cupcakes={this.state.cupcakes} cart={this.state.cart} changeQuantity={this.state.changeQuantity} deleteCupcake={this.deleteCupcake}/>
+          <Cart cupcakes={this.state.cupcakes} cart={this.state.cart} handleChange={this.handleChange} deleteCupcake={this.deleteCupcake}/>
         </div>
         )
       }

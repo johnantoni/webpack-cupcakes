@@ -4,6 +4,20 @@ import { Link} from 'react-router'
 import Checkout from './Checkout';
 
 class Cart extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      inputValue: ''
+    };
+    this.updateInputValue = this.updateInputValue.bind(this);
+  }
+
+  updateInputValue(e) {
+    this.setState({
+      inputValue: e.target.value
+    });
+  }
+
   render() {
     let LineItem = this.props.cart;
     if (LineItem.length > 0) {
@@ -20,14 +34,15 @@ class Cart extends React.Component {
                 cake = cake.replace(/[-]/g, ' ');
                 let icing = item.item.icing;
                 icing = icing.replace(/[-]/g, ' ');
-                console.log(item.item.toppings)
+                console.log(item.item.toppings);
+                let value = item.quantity;
                   return <li key={ index } >
                     <img width="40%" height="auto;" alt="star" src={ image }/>
                     <div className="details">
                     <div className="cakedetails">{ cake }</div>
                     <div className="icingdetails">{ icing }</div>
                     <div className="toppingsdetails">{toppings.join(" ")}</div>
-                    <input type="number" name={id} placeholder={item.quantity} />
+                    <input type="number" id={id} onChange={this.props.handleChange(this.state.inputValue, id)} onChange={this.updateInputValue} placeholder={item.quantity} />
                     <div><button onClick={()=>this.props.deleteCupcake(id) }><i className="fa fa-times" aria-hidden="true"></i></button></div>
                     </div>
                     </li>
