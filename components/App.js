@@ -14,7 +14,7 @@ class App extends React.Component {
       currentUser: null,
       loggedIn: true,
       cupcakes: [],
-      cart: {}
+      cart: []
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.deleteCupcake = this.deleteCupcake.bind(this);
@@ -48,10 +48,6 @@ class App extends React.Component {
     image: data.image,
     toppings: data.toppings
   }
-
-    console.log(item);
-
-
 
     let cart = this.state.cart || [] ;
 
@@ -88,13 +84,14 @@ class App extends React.Component {
     if (this.state.loggedIn) {
       if (this.props.children) {
         return React.cloneElement(this.props.children, {
-          cupcakes: this.state.cupcakes
+          cupcakes: this.state.cupcakes,
+          cart: this.state.cart
         });
       } else {
         return (
           <div>
           <CreateCupcake addCupcake={this.addCupcake}/>
-          <Cart cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
+          <Cart cupcakes={this.state.cupcakes} cart={this.state.cart} deleteCupcake={this.deleteCupcake}/>
         </div>
         )
       }
@@ -117,12 +114,9 @@ class App extends React.Component {
       url: "/api/cart",
       method: "GET",
       success: (data) => {
-        // console.log(data);
         this.setState({ cart: data })
       }
     });
-    // console.log(this.state.cart)
-
   }
 
   loginUser(email) {
