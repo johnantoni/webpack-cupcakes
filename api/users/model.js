@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var passportLocalMongoose = require('passport-local-mongoose')
 
 var AddressSchema = new mongoose.Schema({
   name: String,
@@ -20,7 +21,7 @@ var BillingSchema = new mongoose.Schema({
   Address: AddressSchema
 });
 
-var CustomerSchema = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
   email: String,
   userId: {
     type: String,
@@ -34,5 +35,5 @@ var CustomerSchema = new mongoose.Schema({
    ref: 'Cakes'
   }
 });
-
-module.exports = mongoose.model('Customer', CustomerSchema);
+userSchema.plugin(passportLocalMongoose, { usernameField: 'email'});
+module.exports = mongoose.model('User', userSchema);

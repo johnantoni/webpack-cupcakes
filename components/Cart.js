@@ -4,19 +4,18 @@ import { Link} from 'react-router'
 import Checkout from './Checkout';
 
 class Cart extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      inputValue: ''
-    };
-    this.updateInputValue = this.updateInputValue.bind(this);
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     inputValue: 1
+  //   };
+  // }
 
-  updateInputValue(e) {
-    this.setState({
-      inputValue: e.target.value
-    });
-  }
+  handleChange(id, e) {
+    console.log("The id " + id + " now contains " + e.target.value);
+    let evt = e.target.value
+    this.props.changeQuantity(id, evt)
+   }
 
   render() {
     let LineItem = this.props.cart;
@@ -42,8 +41,8 @@ class Cart extends React.Component {
                     <div className="cakedetails">{ cake }</div>
                     <div className="icingdetails">{ icing }</div>
                     <div className="toppingsdetails">{toppings.join(" ")}</div>
-                    <input type="number" id={id} onChange={this.props.handleChange(this.state.inputValue, id)} onChange={this.updateInputValue} placeholder={item.quantity} />
-                    <div><button onClick={()=>this.props.deleteCupcake(id) }><i className="fa fa-times" aria-hidden="true"></i></button></div>
+                    <input type="number" onChange={this.handleChange.bind(this, id)} placeholder={item.quantity} />
+                    <div><button onClick={()=>this.props.deleteCupcake(id)}><i className="fa fa-times" aria-hidden="true"></i></button></div>
                     </div>
                     </li>
                 })}

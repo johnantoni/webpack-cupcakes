@@ -1,89 +1,70 @@
 import React from 'react';
 
 
-class Login extends React.Component {
-  constructor() {
-    super();
-    this.state={
-      email: '',
-      password: '',
-      mode: 'login',
-      error: null
-    };
-
-    this.setEmail = this.setEmail.bind(this);
-    this.setPassword = this.setPassword.bind(this);
-    this.setMode = this.setMode.bind(this);
-
-    this.login = this.login.bind(this);
-  }
-
-  render() {
-    return <div>
-      { this.state.error ? <div className="errorState">{ this.state.error }</div> : null }
-      <div className="login-background">
-      <img src="/images/logo.png" className="signin-logo"alt="Cupcake Nation Logo"/>
-        <div className="loginType">
-          <label>
-            <input type='radio' value='login' checked={ this.state.mode ==='login' } onChange={ this.setMode } />
-            Login
-          </label>
-          <label>
-            <input type='radio' value='signup' checked={ this.state.mode === 'signup' } onChange={ this.setMode } />
-            Signup
-          </label>
-        </div>
-        <div className="inputArea">
-          <label htmlFor='email'>Email</label>
-          <input type='text' name='email' value={ this.state.email } onChange={ this.setEmail } />
-        </div>
-        <div className="inputArea">
-          <label htmlFor='email'>Password</label>
-          <input type='password' name='password' value={ this.state.password } onChange={ this.setPassword } />
-        </div>
-        <div>
-          <button onClick={this.login}>
-          { this.state.mode === 'login' ? "Login" : "Sign Up" }
-          </button>
-        </div>
-      </div>
-      </div>
-  }
-
-  setEmail(evt) {
-    this.setState({ email: evt.target.value });
-  }
-
-  setPassword(evt) {
-    this.setState({ password: evt.target.value });
-  }
-
-  setMode(evt) {
-    this.setState({ mode: evt.target.value });
-  }
-
-
-  login() {
-    var component = this;
-
-    if (this.state.mode === 'login') {
-      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(function() {
-        component.props.onLogin(component.state.email)
-      })
-      .catch(function(error) {
-        component.setState({ error: error.message })
-      })
-    } else {
-      firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(function() {
-        component.props.onLogin(component.state.email)
-      })
-      .catch(function(error) {
-        component.setState({ error: error.message })
-      })
+var Login = React.createClass({
+  getInitialState: function() {
+    return {
+      login: {
+        mode: 'login',
+        email: '',
+        password: '',
+        name: ''
+      }
     }
+  },
+
+  render: function() {
+    return <div className={ styles.container }>
+      <div className={ styles.mode }>
+        <label>
+          <input type='radio' name='mode' value='login' onChange={ this.updateField } checked={ this.state.login.mode == 'login'} />
+          Login
+        </label>
+        <label>
+          <input type='radio' name='mode' value='signup' onChange={ this.updateField } checked={ this.state.login.mode == 'signup'} />
+          Sign-up
+        </label>
+      </div>
+
+      { this.state.login.mode == 'signup' ?
+          <Field label="Name" name="name" value={ this.state.login.name } onChange={ this.updateField } /> : null
+      }
+      <Field label="E-mail" name="email" value={ this.state.login.email } onChange={ this.updateField } />
+      <Field label="Password" type="password" name="password" value={ this.state.login.password } onChange={ this.updateField } />
+
+      { this.state.error ? <div className={ styles.error }>{ this.state.error }</div> : null }
+
+      <button onClick={ this.login }>Login</button>
+    </div>
+  },
+
+  login: function() {
+    var url;
+    if (this.state.login.mode == 'login') {
+      url = "/api/login";
+    } else {
+      url = "/api/signup";
+    }
+
+    $.ajax({
+      method: 'POST',
+      url: url,
+      data: JSON.stringify(this.state.login),
+      contentType: "application/json; charset=utf-8",
+      success: (user) => {
+        this.props.onLogin(user);
+      },
+      error: (err) => {
+        this.setState({ error: "We couldn't log you in with those credentials." });
+      }
+    })
+  },
+
+  updateField: function(evt) {
+    var login = this.state.login;
+    login[evt.target.name] = evt.target.value;
+    this.setState({login: login});
   }
-}
+})
 
 export default Login;

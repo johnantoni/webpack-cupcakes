@@ -20,7 +20,7 @@ class App extends React.Component {
     this.deleteCupcake = this.deleteCupcake.bind(this);
     this.createLineItem = this.createLineItem.bind(this);
     this.loginUser = this.loginUser.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.changeQuantity = this.changeQuantity.bind(this);
   }
 
   addCupcake(cupcake) {
@@ -66,11 +66,6 @@ class App extends React.Component {
     })
   }
 
-  handleChange(val, id) {
-    console.log(id, val)
-  }
-
-
   deleteCupcake(id) {
     let url = `/api/cart/${id}`;
     $.ajax({
@@ -86,6 +81,29 @@ class App extends React.Component {
     });
   }
 
+  changeQuantity(id, val) {
+    console.log("my id is " + id + "my val is " +val);
+    let cart = this.state.cart || [];
+    var itemToChange = cart.find((item) => item._id === id);
+    itemToChange.quantity = val;
+    console.log(itemToChange);
+    let url = `/api/cart/${id}`;
+    $.ajax({
+      url: url,
+      method: "PUT",
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(itemToChange),
+      success: (data) => {
+        console.log(data);
+        // append new cupcake to object list using name as key
+        // cart.push(data);
+        this.setState({itemToChange});
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
 
   render() {
     if (this.state.loggedIn) {
@@ -98,7 +116,7 @@ class App extends React.Component {
         return (
           <div>
           <CreateCupcake addCupcake={this.addCupcake}/>
-          <Cart cupcakes={this.state.cupcakes} cart={this.state.cart} handleChange={this.handleChange} deleteCupcake={this.deleteCupcake}/>
+        <Cart cupcakes={this.state.cupcakes} cart={this.state.cart} changeQuantity={this.changeQuantity} deleteCupcake={this.deleteCupcake}/>
         </div>
         )
       }

@@ -24,8 +24,36 @@ app.use(express.static('public'));
 app.use('/api/cakes', require('./api/cakes'));
 app.use('/api/cart', require('./api/cart'));
 app.use('/api/orders', require('./api/orders'));
-require('./api/customers/model');
+require('./api/Users/model');
 
+
+var passport = require('passport');
+var User = require('./api/Users/model');
+passport.use(User.createStrategy());
+
+app.post('/api/login', passport.authenticate('local'), function(req, res) {
+  res.send(req.user)
+})
+
+app.use(require('express-session')({ secret: '657gfdue9032849339f', resave: false, saveUninitialized: true }));
+
+app.use(passport.initialize())
+app.use(passport.session())
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.post('/api/signup', function(req, res, next) {
+  var user = new User();
+  user.email = req.body.email;
+  user.name = req.body.name;
+  User.register(user, req.body.password, function(err) {
+    if (err) { next(err); }
+    req.login(user, function(err) {
+      if (err) { next(err); }
+      res.send(user);
+    })
+  })
+});
 // If none of the above matches, serve public/index.html.
 app.get('*', (req, res) => res.sendFile(__dirname + '/public/index.html'))
 
