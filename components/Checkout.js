@@ -4,11 +4,35 @@ class Checkout extends React.Component {
 
   constructor() {
     super();
-    this.calTotal = this.calTotal.bind(this);
+    this.state = {
+      count: 0,
+      tax: 0.13
+    }
+    this.calSubTotal = this.calSubTotal.bind(this);
+    this.calTax = this.calTax.bind(this);
+    this.updateCount = this.updateCount.bind(this);
+  }
+
+  updateCount(subTotal) {
+    let count  = this.state.count;
+    count = count + subTotal;
+    console.log("count is:" + count);
+    this.setState({count});
+
+  }
+
+  calSubTotal(price, quantity) {
+    let subTotal = quantity * price
+    return subTotal;
   }
 
   calTotal(price, quantity) {
     return quantity * price
+  }
+
+  calTax(total) {
+    let tax = this.state.tax;
+    return (total * tax).toFixed(2);
   }
 
   render() {
@@ -39,7 +63,8 @@ class Checkout extends React.Component {
           let icing = item.item.icing;
           let price = item.price;
           let quantity = item.quantity;
-          let total = this.calTotal(quantity, price);
+          let total = item.total;
+          let tax =  this.calTax(total);
           icing = icing.replace(/[-]/g, ' ');
           return <div key={ index } >
             <div className="item">
@@ -57,12 +82,14 @@ class Checkout extends React.Component {
               { quantity }
             </div>
             <div className="total">
-            {total}
-
+              { item.total }
             </div>
           </div>
         })}
+        <div>Subtotal</div>
+        { LineItem.reduce((a,b) => a + b.total, 0)}
       </div>
+
       </div>
     )
     } else {

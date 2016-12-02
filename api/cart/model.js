@@ -30,6 +30,13 @@ var CartSchema = new mongoose.Schema({
     type: Number,
     default: 1
   },
+}, {
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true }
 });
+
+CartSchema.virtual('total').get(function() {
+  return this.price * this.quantity;
+})
 
 module.exports = mongoose.model('CartItem', CartSchema);

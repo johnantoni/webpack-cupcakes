@@ -4,12 +4,6 @@ import { Link} from 'react-router'
 import Checkout from './Checkout';
 
 class Cart extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     inputValue: 1
-  //   };
-  // }
 
   handleChange(id, e) {
     console.log("The id " + id + " now contains " + e.target.value);
