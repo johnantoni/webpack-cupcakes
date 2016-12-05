@@ -273,12 +273,39 @@ font-size: 3em;
 }
 
 .checkout-form .cupcake-row {
-  font-size:2em;
+  font-size:1.5em;
 }
 
+.cupcake-row .item .details {
+  width: 100% !important;
+  padding: 0 0% 19% 3%;
+}
+
+.cupcake-intro {
+    font-size: 1em !important;
+  }
+
+.item {
+  width: 35% !important;
+}
+
+.item img {
+  width: 80%;
+}
+
+.cupcake-row .item {
+    font-size: 1.2rem !important;
+    margin-left: 0;
+}
 @media screen and (max-width: 600px) {
   .cupcakeImg {
     background-image: url(/images/background1.png);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cupcake-row .item .details {
+    display: none;
   }
 }
 
@@ -312,6 +339,9 @@ font-size: 3em;
   canvas {
     height: 286px;
   }
+  .checkout-form .cupcake-row {
+    font-size:2em;
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -327,6 +357,18 @@ font-size: 3em;
     width: 200px;
     display: block;
     z-index: 999;
+  }
+
+  .item {
+    width: 42% !important;
+}
+
+  .item img{
+    width: 34% !important;
+  }
+  .cupcake-row .item .details {
+    width: 57% !important;
+    padding: 0 !important;
   }
 
   .form .logo {
@@ -367,6 +409,9 @@ font-size: 3em;
   canvas {
     height: 450px;
   }
+  .item {
+    padding-left: 2.2rem;
+  }
 }
 
 .cupcake-intro {
@@ -380,7 +425,7 @@ font-size: 3em;
   display: inline-block;
   width: 42%;
   vertical-align: top;
-  padding-left: 2.2rem;
+  padding-left: 1.2rem;
 }
 
 .price, .quantity, .total {
@@ -407,11 +452,6 @@ font-size: 3em;
 .cupcake-row .item {
     font-size: 1.4rem !important;
     margin-left: 0;
-}
-
-.cupcake-row .item .details {
-  width: 57%;
-  padding: 0 0% 19% 3%;
 }
 
 .subtotal {
@@ -464,6 +504,16 @@ font-size: 3em;
   .cupcakeImg {
     width: 40%;
   }
+  .item img{
+    width: 40% !important;
+  }
+  .cupcake-row .item .details {
+    width: 57% !important;
+    /*padding: 0 !important;*/
+    margin: 0;
+        padding: 0 0% 16% 3% !important;
+  }
+
 }
 @media screen and (min-width: 1200px) {
   .details {
