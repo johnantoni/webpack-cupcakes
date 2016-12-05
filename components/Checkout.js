@@ -43,21 +43,24 @@ class checkout extends React.Component {
       <div>
         { LineItem.map( (item, index) => {
           let id = item._id;
-          let toppings = item.item.toppings || [];
           let cake = item.item.cake;
-          cake = cake.replace(/[-]/g, ' ');
           let icing = item.item.icing;
+          let toppings = item.item.toppings || [];
           let price = item.price;
           let quantity = item.quantity;
           let total = item.total;
+
+          cake = cake.replace(/[-]/g, ' ');
           icing = icing.replace(/[-]/g, ' ');
+          toppings = toppings.join(" ").replace(/[-]/g, ' ');
+
           return <div key={ index } className="cupcake-row" >
             <div className="item">
               <img width="40%" height="auto;" alt="star" src={ item.item.image }/>
               <div className="details">
                 <div className="cakedetails">{ cake }</div>
                 <div className="icingdetails">{ icing }</div>
-                <div className="toppingsdetails">{toppings}</div>
+                <div className="toppingsdetails">{ toppings }</div>
               </div>
             </div>
             <div className="price">

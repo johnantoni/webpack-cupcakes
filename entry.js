@@ -6,7 +6,7 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 
 import App from './components/App';
 import Orders from './components/Orders';
-import checkout from './components/checkout';
+import checkout from './components/Checkout';
 
 
 render((<Router history={ browserHistory}>
