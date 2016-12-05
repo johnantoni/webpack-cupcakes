@@ -71,8 +71,8 @@ body {
   display: inline-block;
   background-color: #f9f4c5;
   overflow-y: scroll;
-  height: 100vh;
-  padding: 0 1%;
+  height: 101vh;
+  padding: 0 1% ;
   background-image: url("/images/wood.png");
 }
 
@@ -147,7 +147,7 @@ canvas {
 .inputcheck img { cursor: pointer; }
 
 .Cart {
-  background-color: #fff;
+  background-color: #fdf9f3;
   padding: 0 0.5em;
   border-radius: 1em;
   margin: 3%;
@@ -169,22 +169,20 @@ canvas {
 }
 
 .Cart li {
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 3px dotted #96cfbf;
   padding: 0.5em 0 0.5em;
-  position: relative;                                                                                                                                                                                    position: relative;
+  position: relative;
 }
 
-
-
 .Cart li:last-child {
-border-bottom: none;
-padding-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .Cart button {
   position: absolute;
-  right: 0.5em;
-  top: 1em;
+  right: -0.5em;
+  top: 0.5em;
   background-color: transparent;
   border: 0;
   color: #A6A6A6;
@@ -192,7 +190,7 @@ padding-bottom: 0;
 }
 
 .Cart button i {
-font-size: 4em;
+font-size: 3em;
 }
 
 .details {
@@ -200,6 +198,10 @@ font-size: 4em;
   display: inline-block;
   vertical-align: bottom;
   padding-bottom: 10%;
+}
+
+.details input {
+  margin-top: 1em;
 }
 
 .form button {
@@ -214,7 +216,14 @@ font-size: 4em;
   padding: 16px 6px;
 }
 
-.Checkout {
+.form button:focus {
+  outline: none;
+}
+
+.form button:hover {
+  background-color: #c24b5a;
+}
+.checkout {
   width: 91%;
   float: right;
   right: 0;
@@ -228,18 +237,56 @@ font-size: 4em;
   font-size: 28px;
   padding: 16px 6px;
   text-align: center;
-}
-
-.Checkout a {
-  color: black;
   text-decoration: none;
 }
 
+.checkout {
+  color: #fff;
+  text-decoration: none;
+}
+
+.checkout:hover {
+  background-color: #c24b5a;
+}
+
+.checkout-form {
+  background-color: #fdf9f3;
+  margin: 3%;
+  border-radius: 20px;
+  padding: 2% 2% 10% 2%;
+}
+
+.checkout-form h2 {
+  font-family: 'Cookie', cursive;
+  text-align: center;
+  font-size: 3em;
+  padding: 0;
+  margin: 0.2em 0 0;
+  color: #D5848E;
+}
+
+.checkout-form .cupcake-row {
+  font-size:2em;
+}
 @media screen and (min-width: 600px) {
   .form {
     width: 45%;
     float: left;
     margin-top: 0;
+    /*position: relative;*/
+  }
+  .form h3 {
+    font-size: 1.8em
+  }
+  .form button {
+    position: absolute;
+    bottom: -0.5em;
+    left: 31.5%;;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    display: block;
+    z-index: 999;
   }
 
   .cupcakeImg {
@@ -254,7 +301,7 @@ font-size: 4em;
     overflow-y: scroll;
     height: 36vh;
   }
-  .Checkout {
+  .checkout {
     position: absolute;
     width: 43%;
   }
@@ -287,32 +334,107 @@ font-size: 4em;
     position: absolute;
     right: 0;
     top: 0;
-    height: 80.5vh;
+    height: 84.5vh;
   }
 
   .Cart li {
-    width: 100%;
-    margin: 0.5em;                                                                                                                              position: relative;
+    width: 100%;                                                                                                                     position: relative;
   }
 
-  .Checkout  {
+  .checkout  {
     width: 23%;
   }
+
   .details {
     width: 100%;
     margin: 0.5em 0.5em 0;
   }
+  canvas {
+    height: 500px;
+  }
 }
 
+.cupcake-intro {
+  padding: 0 0 0.75em 0;
+      margin: 0 2em;
+      font-size: 1.5em
+}
 
 
 .item {
   display: inline-block;
-  width: 40%;
+  width: 42%;
+  vertical-align: top;
+  padding-left: 2.2rem;
 }
+
 .price, .quantity, .total {
   display: inline-block;
-  width: 15%;
+  width: 18%;
+  text-align: center;
+}
+
+.cupcake-row {
+  border-bottom: 3px dotted #96cfbf;
+      padding: 0 0 0.75em 0;
+          margin: 0 1em;
+}
+
+.cupcake-row:last-child {
+  border-bottom: none !important;
+}
+
+.cupcake-row .price, .cupcake-row .quantity, .cupcake-row .total {
+  vertical-align: top;
+  margin-top: 11%;
+}
+
+.cupcake-row .item {
+    font-size: 1.4rem !important;
+    margin-left: 0;
+}
+
+.cupcake-row .item .details {
+  width: 57%;
+  padding: 0 0% 19% 3%;
+}
+
+.subtotal {
+  float: right;
+  font-size: 2em;
+}
+
+.subtotal .label {
+  font-family: 'Cookie', cursive;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0.2em 0 0;
+  color: #D5848E;
+  display: inline-block;
+}
+
+.subtotal .value {
+  display: inline-block;
+  margin: 0.3em;
+}
+.subtotal .value em {
+  display: inline-block;
+  font-style: normal
+}
+
+.subtotal .value span {
+  font-size: 1.2rem !important;
+    margin: 0 0.3em;
+}
+
+.changes {
+  font-size: 1.5rem;
+  margin: 1.4em;
+  background-color: #d5a283;
+  padding: 0.5em 1em 0.5em 0.5em;
+  color: #fff;
+  border: none;
 }
 
 

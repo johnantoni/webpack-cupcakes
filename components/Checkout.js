@@ -1,6 +1,7 @@
 import React from 'react'
+import { Router, Route, Link, browserHistory } from 'react-router'
 
-class Checkout extends React.Component {
+class checkout extends React.Component {
 
   constructor() {
     super();
@@ -8,31 +9,12 @@ class Checkout extends React.Component {
       count: 0,
       tax: 0.13
     }
-    this.calSubTotal = this.calSubTotal.bind(this);
     this.calTax = this.calTax.bind(this);
-    this.updateCount = this.updateCount.bind(this);
-  }
-
-  updateCount(subTotal) {
-    let count  = this.state.count;
-    count = count + subTotal;
-    console.log("count is:" + count);
-    this.setState({count});
-
-  }
-
-  calSubTotal(price, quantity) {
-    let subTotal = quantity * price
-    return subTotal;
-  }
-
-  calTotal(price, quantity) {
-    return quantity * price
   }
 
   calTax(total) {
     let tax = this.state.tax;
-    return (total * tax).toFixed(2);
+    return (total * tax + total).toFixed(2);
   }
 
   render() {
@@ -40,20 +22,24 @@ class Checkout extends React.Component {
     if (LineItem.length > 0) {
     console.log(LineItem);
     return (
-      <div>
+      <div className="checkout-form">
+        <button onClick={browserHistory.goBack} className='changes'> &larr; Make Changes to your order</button>
         <h2>Order Form</h2>
-      <div className="item">
-        <h2>Cupcake</h2>
+      <div className="cupcake-intro">
+        <div className="item">
+          <h3>Cupcake</h3>
+        </div>
+        <div className="price">
+          <h3>Price Each</h3>
+        </div>
+        <div className="quantity">
+          <h3>Quantity</h3>
+        </div>
+        <div className="total">
+          <h3>total</h3>
+        </div>
       </div>
-      <div className="price">
-        <h2>Price Each</h2>
-      </div>
-      <div className="quanity">
-        <h2>Quantity</h2>
-      </div>
-      <div className="total">
-        <h2>total</h2>
-      </div>
+
       <div>
         { LineItem.map( (item, index) => {
           let id = item._id;
@@ -64,9 +50,8 @@ class Checkout extends React.Component {
           let price = item.price;
           let quantity = item.quantity;
           let total = item.total;
-          let tax =  this.calTax(total);
           icing = icing.replace(/[-]/g, ' ');
-          return <div key={ index } >
+          return <div key={ index } className="cupcake-row" >
             <div className="item">
               <img width="40%" height="auto;" alt="star" src={ item.item.image }/>
               <div className="details">
@@ -86,8 +71,11 @@ class Checkout extends React.Component {
             </div>
           </div>
         })}
-        <div>Subtotal</div>
-        { LineItem.reduce((a,b) => a + b.total, 0)}
+        <button onClick={browserHistory.goBack} className='changes'> &larr; Make Changes to your order</button>
+        <div className="subtotal">
+          <div className="label">Subtotal</div>
+          <div className="value"><em>$</em>{ this.calTax(LineItem.reduce((a,b) => a + b.total, 0))}<span>Tax incl</span></div>
+        </div>
       </div>
 
       </div>
@@ -100,4 +88,4 @@ class Checkout extends React.Component {
 
 
 
-export default Checkout;
+export default checkout;

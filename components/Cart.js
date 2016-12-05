@@ -42,10 +42,7 @@ class Cart extends React.Component {
                 })}
             </ul>
             </div>
-            <div className="Checkout">
-                <Link to="/checkout">checkout</Link>
-            </div>
-            // {this.props.children}
+                <Link to="/checkout" className="checkout">Checkout</Link>
         </div>
       )
     } else {
