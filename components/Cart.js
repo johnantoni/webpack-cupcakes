@@ -30,7 +30,7 @@ class Cart extends React.Component {
 
                 cake = cake.replace(/[-]/g, ' ');
                 icing = icing.replace(/[-]/g, ' ');
-                toppings = toppings.join(" ").replace(/[-]/g, ' ');
+                toppings = toppings.join(', ').replace(/[-]/g, ' ');
 
                 return <li key={ index } >
                   <img width="40%" height="auto;" alt="star" src={ image }/>

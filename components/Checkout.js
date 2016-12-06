@@ -52,7 +52,7 @@ class checkout extends React.Component {
 
           cake = cake.replace(/[-]/g, ' ');
           icing = icing.replace(/[-]/g, ' ');
-          toppings = toppings.join(" ").replace(/[-]/g, ' ');
+          toppings = toppings.join(', ').replace(/[-]/g, ' ');
 
           return <div key={ index } className="cupcake-row" >
             <div className="item">
@@ -77,7 +77,10 @@ class checkout extends React.Component {
         <button onClick={browserHistory.goBack} className='changes'> &larr; Make Changes to your order</button>
         <div className="subtotal">
           <div className="label">Subtotal</div>
-          <div className="value"><em>$</em>{ this.calTax(LineItem.reduce((a,b) => a + b.total, 0))}<span>Tax incl</span></div>
+          <div className="value">
+            <em>$</em>
+            { ((LineItem.reduce((a,b) => a + b.total, 0) * 0.15) + (LineItem.reduce((a,b) => a + b.total, 0)) ).toFixed(2) }<span>Tax incl</span>
+          </div>
         </div>
       </div>
 
