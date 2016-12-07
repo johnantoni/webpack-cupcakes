@@ -5,7 +5,6 @@ class checkout extends React.Component {
 
   constructor() {
     super();
-    this.forceUpdate();
     this.state = {
       count: 0,
       tax: 0.13
@@ -14,7 +13,7 @@ class checkout extends React.Component {
   }
 
   componentDidMount() {
-    let LineItem = this.props.cart;
+    this.forceUpdate();
   }
 
   calTax(total) {
