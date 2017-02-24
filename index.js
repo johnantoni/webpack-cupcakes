@@ -6,7 +6,8 @@ var webpackMiddleware = require('webpack-dev-middleware');
 
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise; // clear mongo's promise depreciation warning : https://github.com/Automattic/mongoose/issues/4291
-mongoose.connect('mongodb://localhost/cupcakes');
+// mongoose.connect('mongodb://localhost/cupcakes');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/cupcakes')
 
 // add bluebird
 var Promise = require("bluebird");
@@ -24,11 +25,11 @@ app.use(express.static('public'));
 app.use('/api/cakes', require('./api/cakes'));
 app.use('/api/cart', require('./api/cart'));
 app.use('/api/orders', require('./api/orders'));
-require('./api/Users/model');
+require('./api/users/model');
 
 
 var passport = require('passport');
-var User = require('./api/Users/model');
+var User = require('./api/users/model');
 passport.use(User.createStrategy());
 
 app.post('/api/login', passport.authenticate('local'), function(req, res) {
@@ -57,4 +58,4 @@ app.post('/api/signup', function(req, res, next) {
 // If none of the above matches, serve public/index.html.
 app.get('*', (req, res) => res.sendFile(__dirname + '/public/index.html'))
 
-app.listen(8081);
+app.listen(process.env.PORT || 3000);
