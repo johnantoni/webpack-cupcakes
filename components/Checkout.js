@@ -5,6 +5,7 @@ class checkout extends React.Component {
 
   constructor() {
     super();
+    this.forceUpdate();
     this.state = {
       count: 0,
       tax: 0.13
