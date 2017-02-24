@@ -9,3 +9,7 @@ install
 run with:
 
 	nodemon index.js
+
+then open at:
+
+	localhost:3000
