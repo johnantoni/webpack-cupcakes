@@ -2,7 +2,7 @@
 
 install
 
-	brew install node6-lts
+	brew install node6-lts nodemon mongo
 	npm install
 
 run with:
